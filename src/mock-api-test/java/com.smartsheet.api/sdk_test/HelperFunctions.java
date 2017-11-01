@@ -7,10 +7,10 @@ import com.smartsheet.api.oauth.Token;
 public class HelperFunctions {
 	public static Smartsheet SetupClient(String apiScenario){
 		Smartsheet ss = new SmartsheetBuilder()
-				.setBaseURI("http://localhost:8082/")
-				.setAccessToken("aaaaaaaaaaaaaaaaaaaaaaaaaa")
-				.setAPIScenario(apiScenario)
-				.build();
+			.setBaseURI("http://localhost:8082/")
+			.setAccessToken("aaaaaaaaaaaaaaaaaaaaaaaaaa")
+			.setAPIScenario(apiScenario)
+			.build();
 
 		return ss;
 	}
