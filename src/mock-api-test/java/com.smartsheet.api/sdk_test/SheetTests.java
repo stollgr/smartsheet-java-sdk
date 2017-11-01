@@ -32,18 +32,15 @@ public class SheetTests {
 
 	
 	@Test
-	public void ListSheets_NoParams() throws Exception
+	public void ListSheets_NoParams()
 	{
-		Smartsheet ss =  HelperFunctions.SetupClient("List Sheets - No Params");
-		PagedResult<Sheet> sheets = ss.sheetResources().listSheets(null, null, null);
-		boolean foundObject = false;
-		for(Sheet sheet: sheets.getData()){
-			if(sheet.getName().equals("Copy of Sample Sheet")) {
-				foundObject = true;
-				break;
-			}
+		try {
+			Smartsheet ss = HelperFunctions.SetupClient("List Sheets - No Params");
+			PagedResult<Sheet> sheets = ss.sheetResources().listSheets(null, null, null);
+			Assert.assertEquals(sheets.getData().get(0).getName(), "Copy of Sample Sheet");
+		}catch(Exception ex){
+			Assert.fail(String.format("Exception: %s Detail: %s", ex.getMessage(), ex.getCause()));
 		}
-		Assert.assertTrue(foundObject);
 	}
 
 }
