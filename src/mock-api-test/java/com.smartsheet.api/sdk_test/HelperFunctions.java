@@ -9,7 +9,7 @@ public class HelperFunctions {
 		Token token = new Token();
 		token.setAccessToken("aaaaaaaaaaaaaaaaaaaaaaaaaa");
 		Smartsheet ss = new SmartsheetBuilder()
-				.setBaseURI("http//://localhost:8082/")
+				.setBaseURI("http://localhost:8082/")
 				.setAccessToken(token.getAccessToken())
 				.setAPIScenario(apiScenario)
 				.build();
