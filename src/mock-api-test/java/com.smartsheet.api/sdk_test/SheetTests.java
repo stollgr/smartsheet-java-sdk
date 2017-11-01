@@ -47,26 +47,18 @@ public class SheetTests {
 
 	
 	@Test
-	public void ListSheets_NoParams()
+	public void ListSheets_NoParams() throws Exception
 	{
 		Smartsheet ss =  HelperFunctions.SetupClient("List Sheets - No Params");
-		try {
-			PagedResult<Sheet> sheets = ss.sheetResources().listSheets(null, null, null);
-			boolean foundObject = false;
-			for(Sheet sheet: sheets.getData()){
-				if(sheet.getName().equals("Copy of Sample Sheet")) {
-					foundObject = true;
-					break;
-				}
+		PagedResult<Sheet> sheets = ss.sheetResources().listSheets(null, null, null);
+		boolean foundObject = false;
+		for(Sheet sheet: sheets.getData()){
+			if(sheet.getName().equals("Copy of Sample Sheet")) {
+				foundObject = true;
+				break;
 			}
-			Assert.assertTrue(foundObject);
-			//sheets.getData().stream().anyMatch(s -> s.getName().equals("Copy of Sample Sheet")).
-			//Assert.assertNotNull(sheets.getData()..Where(s = > s.Name.Equals("Copy of Sample Sheet")).FirstOrDefault());
-		}catch (SmartsheetException ex){
-			Assert.fail(String.format("Failed on unexpected smartsheet exception. Exception %s", ex));
-		}catch(Exception ex){
-			Assert.fail(String.format("Failed on unexpected exception. Exception s%", ex));
 		}
+		Assert.assertTrue(foundObject);
 	}
 
 }

@@ -6,11 +6,9 @@ import com.smartsheet.api.oauth.Token;
 
 public class HelperFunctions {
 	public static Smartsheet SetupClient(String apiScenario){
-		Token token = new Token();
-		token.setAccessToken("aaaaaaaaaaaaaaaaaaaaaaaaaa");
 		Smartsheet ss = new SmartsheetBuilder()
 				.setBaseURI("http://localhost:8082/")
-				.setAccessToken(token.getAccessToken())
+				.setAccessToken("aaaaaaaaaaaaaaaaaaaaaaaaaa")
 				.setAPIScenario(apiScenario)
 				.build();
 
