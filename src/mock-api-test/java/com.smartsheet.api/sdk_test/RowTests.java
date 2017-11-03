@@ -133,34 +133,6 @@ public class RowTests {
 		}
 	}
 
-//	@Test
-//	public void addRows_Location_Indent()
-//	{
-//		try{
-//			Smartsheet ss = HelperFunctions.SetupClient("Add Rows - Location - Indent");
-//
-//			Row rowA = new Row();
-//			rowA.setIndent(3);
-//			rowA.setToBottom(true);
-//			Cell cell1 = new Cell();
-//			cell1.setColumnId(101L);
-//			cell1.setValue("Apple");
-//			Cell cell2 = new Cell();
-//			cell2.setColumnId(102L);
-//			cell2.setValue("Red Fruit");
-//			rowA.setCells(Arrays.asList(cell1, cell2));
-//
-//			// Update rows in sheet
-//			List<Row> addedRows = ss.sheetResources().rowResources().addRows(1, Arrays.asList(rowA));
-//
-//			Assert.assertEquals(addedRows.get(0).getCells().get(0).getValue(), "Apple");
-//			Assert.assertEquals(addedRows.get(0).getRowNumber().intValue(), 100);
-//			Assert.assertEquals(addedRows.get(0).getCells().get(0).getColumnId().longValue(), 101L);
-//		}catch(Exception ex){
-//			Assert.fail(String.format("Exception: %s Detail: %s", ex.getMessage(), ex.getCause()));
-//		}
-//	}
-
 	@Test
 	public void addRows_AssignValues_Int()
 	{
@@ -233,51 +205,6 @@ public class RowTests {
 		}
 	}
 
-//	//@Test
-//	//public void addRows_AssignValues_Date()
-//	//{
-//	//    Smartsheet ss = HelperFunctions.SetupClient("Add Rows - Assign Values - Date");
-//
-//	//    Row rowA = new Row
-//	//    {
-//	//        Cells = new List<Cell>
-//	//        {
-//	//            new Cell{
-//	//                ColumnId = 101,
-//	//                ObjectValue = new ObjectType()
-//	//                }
-//	//            },
-//	//            new Cell{
-//	//                ColumnId = 102,
-//	//                Value = "This is True"
-//	//            }
-//	//        }
-//	//    };
-//
-//	//    Row rowB = new Row
-//	//    {
-//	//        Cells = new List<Cell>
-//	//        {
-//	//            new Cell{
-//	//                ColumnId = 101,
-//	//                Value = false
-//	//            },
-//	//            new Cell{
-//	//                ColumnId = 102,
-//	//                Value = "This is False"
-//	//            }
-//	//        }
-//	//    };
-//
-//	//    // Update rows in sheet
-//	//    List<Row> addedRows = ss.sheetResources().rowResources().addRows(1, new Row[] { rowA, rowB });
-//
-//	//    Row row = addedRows.Where(r => r.Id == 10).FirstOrDefault();
-//	//    Cell cell = row.Cells.Where(c => c.Value.Equals(true)).FirstOrDefault();
-//
-//	//    Assert.AreEqual(cell.ColumnId, 101);
-//	//}
-//
 @Test
 	public void addRows_AssignFormulae()
 	{
@@ -298,6 +225,7 @@ public class RowTests {
 
 			Assert.assertEquals(addedRows.get(0).getCells().get(1).getFormula(), "=SUM([Column2]3, [Column2]3, [Column2]4)");
 			Assert.assertEquals(addedRows.get(0).getCells().get(1).getColumnId().longValue(), 102L);
+			Assert.fail("hello");
 
 		}catch(Exception ex){
 			Assert.fail(String.format("Exception: %s Detail: %s", ex.getMessage(), ex.getCause()));
