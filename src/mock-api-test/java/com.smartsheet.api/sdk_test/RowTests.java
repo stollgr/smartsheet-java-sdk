@@ -460,7 +460,7 @@ public class RowTests {
 	}
 
 	@Test
-	public void updateRows_AssignValues_Int()
+	public void UpdateRows_AssignValues_Int()
 	{
 		try{
 			Smartsheet ss = HelperFunctions.SetupClient("Update Rows - Assign Values - Int");
